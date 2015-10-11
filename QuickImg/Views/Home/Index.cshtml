@@ -1,0 +1,36 @@
+﻿@using (Html.BeginForm("Index", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <input type="file" name="file" />
+    <label>Show: </label>
+    <select name="maxShow">
+      <option value="1">1 time</option>
+      <option value="2" selected="selected">2 times</option>
+      <option value="3">3 times</option>
+      <option value="5">5 times</option>
+      <option value="8">8 times</option>
+      <option value="10">10 times</option>
+    </select>
+    <input type="submit" value="Upload" />
+}
+
+<div>
+@if (ViewBag.size != string.Empty)
+{
+    <p>@ViewBag.size</p>
+}
+@if (ViewBag.format != string.Empty)
+{
+    <p>@ViewBag.format</p>
+}
+@if (ViewBag.error != string.Empty)
+{
+    <p>@ViewBag.error</p>
+}
+</div>
+
+<div>
+  @if (ViewBag.result != null && ViewBag.result != Guid.Empty)
+  {
+      <p><a href="/Img/@ViewBag.result">Watch image</a></p>
+  }
+</div>
