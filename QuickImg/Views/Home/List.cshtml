@@ -1,0 +1,36 @@
+﻿@model IEnumerable<QuickImg.Models.Img>
+
+@{
+    ViewBag.Title = "List";
+}
+
+<h2>Existing images</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            Time left
+        </th>
+        <th>
+            Views
+        </th>
+        <th>
+            Show
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TimeLeft)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Views)
+        </td>
+        <td>
+          <a href="/Img/@item.Id">Watch image</a>
+        </td>
+    </tr>
+}
+
+</table>
